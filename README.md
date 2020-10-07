@@ -9,3 +9,9 @@ git add .
 git commit -a -m "add src folder"
 git push origin master
 ```
+
+ssh
+```
+ssh-keygen -t rsa -C "mywindbell@gmail.com"
+ssh-add ~/.ssh/id_rsa
+```
