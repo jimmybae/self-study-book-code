@@ -1,6 +1,6 @@
-connect GitHub at goormIDE
+## connect GitHub at goormIDE
 ```
-?git init
+git init
 git remote add origin https://github.com/jimmybae/self-study-book-code.git
 git remote -v
 git config --global user.email "mywindbell@gmail.com"
@@ -10,8 +10,12 @@ git commit -a -m "add src folder"
 git push origin master
 ```
 
-ssh
+## ssh
 ```
 ssh-keygen -t rsa -C "mywindbell@gmail.com"
-ssh-add ~/.ssh/id_rsa
+?ssh-add ~/.ssh/id_rsa
+```
+- GitHub add SSH key
+```
+git remote set-url origin git@github.com:jimmybae/self-study-book-code.git
 ```
