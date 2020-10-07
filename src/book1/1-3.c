@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 void pra(int arr[], int size, char *subject) {
 	int i;
@@ -13,42 +12,31 @@ void pra(int arr[], int size, char *subject) {
 	printf("\n");
 }
 
-int main () {
-	int i, j, k, l, m, r;
-	int number[] = { -7, -3, -2, 5, 8 };
-	for(i = 0; i < 5; i++) {
-		printf("> %d\n", number[i]);
-		if(number[i] == 0) {
-			printf("OK ------> %d\n", number[i]);
-		}
-		r++;
-		for(j = i + 1; j < 5; j++) {
-			printf("> %d, %d\n", number[i], number[j]);
-			if(number[i] + number[j] == 0) {
-				printf("OK ------> %d, %d\n", number[i], number[j]);
-			}
-			r++;
-			for(k = j + 1; k < 5; k++) {
-				printf("> %d, %d, %d\n", number[i], number[j], number[k]);
-				if(number[i] + number[j] + number[k] == 0) {
-					printf("OK ------> %d, %d, %d\n", number[i], number[j], number[k]);
-				}
-				r++;
-				for(l = k + 1; l < 5; l++) {
-					printf("> %d, %d, %d, %d\n", number[i], number[j], number[k], number[l]);
-					if(number[i] + number[j] + number[k] + number[l] == 0) {
-						printf("OK ------> %d, %d, %d, %d\n", number[i], number[j], number[k], number[l]);
-					}
-					r++;
-				}
+int main() {
+	int i, j;
+	int arr[] = {-7, -3, -2, 5, 8};
+	int n = sizeof(arr) / sizeof(int);
+	int sum;
+	
+	int ret = 0;
+	// printf("%d\n", 1 << (n));
+	for(i = 1; i < ( 1 << (n)); i++) {
+		sum = 0;
+		int str[5] = { 0, };
+		for(j = 0; j < n; j++) {
+			printf("%d & (1 << %d), %d = %d\n", i, j, 1 << j, i & (1 << j));
+			if(i & (1 << j)) {
+				sum += arr[j];
+				str[j] = arr[j];
 			}
 		}
+		// printf("~~~\n");
+		// printf("%d", i);
+		//  pra(str, 5, "");
+		if (sum == 0) {
+			ret = 1;
+			// break;
+		}
 	}
-	printf("> %d, %d, %d, %d, %d\n", number[0], number[1], number[2], number[3], number[4]);
-	r++;
-	if(number[0] + number[1] + number[2] + number[3] + number[4] == 0) {
-		printf("OK ------> %d, %d, %d, %d, %d\n", number[0], number[1], number[2], number[3], number[4]);
-	}
-	pra(number, 5, "number");
-	printf("%d\n", r);
+	printf("%s\n", ret ? "True": "False");
 }
